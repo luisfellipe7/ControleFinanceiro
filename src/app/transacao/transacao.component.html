@@ -1,0 +1,63 @@
+<section class="transacao">
+  <h2 class="transacao_title">Nova transação</h2>
+  <form class="transacao_form" [formGroup]="transacaoForm" (ngSubmit)="onSubmit()">
+    <div class="transacao_input-select-action">
+      <label class="transacao_label-type" for="transacao">Tipo de transação</label>
+      <select class="transacao_select-type" id="transacao" name="transacao" formControlName="transacao" [ngClass]="{ 'transacao_select--invalid': submitted && validate.transacao.errors }" required>
+        <option [value]="action" *ngFor="let action of actions">{{action}}</option>
+      </select>
+      <div *ngIf="submitted && validate.transacao.errors" class="transacao_input-feedback">
+        <p *ngIf="validate.transacao.errors.required">Escolha um tipo de transação</p>
+      </div>
+    </div>
+    <div class="transacao_input-text-name">
+      <label class="transacao_label-name" for="name">Nome da mercadoria</label>
+      <input class="transacao_input-name" id="name" name="name" placeholder="Input" formControlName="name" [ngClass]="{ 'transacao_input-name--invalid': submitted && validate.name.errors }" required>
+      <div *ngIf="submitted && validate.name.errors" class="transacao_input-feedback">
+        <p *ngIf="validate.name.errors.required">Preencha o campo nome do produto</p>
+      </div>
+    </div>
+    <div class="transacao_input-value-preco">
+      <label class="transacao_label-value" for="valor">Valor</label>
+      <input class="transacao_input-value"id="valor" name="valor" placeholder="R$ 0.00" formControlName="preco" [ngClass]="{ 'transacao_input-preco--invalid': submitted && validate.preco.errors }" required pattern="/^(\$)?([1-9]{1}[0-9]{0,2})(\,\d{3})*(\.\d{2})?$|^(\$)?([1-9]{1}[0-9]{0,2})(\d{3})*(\.\d{2})?$|^(0)?(\.\d{2})?$|^(\$0)?(\.\d{2})?$|^(\$\.)(\d{2})?$"> 
+      <div *ngIf="submitted && validate.preco.errors" class="transacao_input-feedback">
+        <p *ngIf="validate.preco.errors.required">Preencha o campo Preço (0.00)</p>
+      </div>
+    </div>
+    <button class="transacao_button-add" type="submit">Adicionar transação</button>
+  </form>
+</section>
+<section class="account">
+  <h2 class="account_title">Extrato de transações</h2>
+  <table *ngIf="transacaos.length else empty" class="account_data">
+    <thead class="account_head">
+      <tr class="account_list account_list--normal">
+        <th></th>
+        <th class="account_head-merc">Mercadoria</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="account_list" *ngFor="let transacao of transacaos">
+        <td class="account_list-transacao">{{ (transacao.transacao == 'Compra') ? '-' : '+' }}</td> 
+        <td class="account_list-name">{{transacao.name}}</td>
+        <td class="account_list-preco">R$ {{transacao.preco}}</td>
+      </tr>
+    </tbody>
+    <tfoot class="account_tfooter">
+      <tr class="account_list account_list--normal">
+        <td></td>
+        <td class="account_item">Total</td>
+        <td class="account_item account_item--text-center">R$ {{totalpreco.toFixed(2).replace('.', ',')}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="account_desc">{{(totalpreco.toFixed(2) > 0 ) ? '[Lucro]' : '[Prejuízo]' }}</td>
+      </tr>
+    </tfoot>
+  </table>
+  <ng-template #empty>
+    <p>Nenhum registro</p>
+  </ng-template>
+</section>

@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="row">
+    <a href="./" class="header_link"><h1><img src="./assets/logo.svg" alt="Controle Financeiro"></h1></a>
+    <h2 class="header_text">Controle Financeiro</h2>
+    <span (click)="onClickMenu()" class="menu-icon"></span>
+    <nav class="nav" [ngClass]="{'nav--active': active}">
+      <ul class="nav_list">
+        <div (click)="onClickMenu()" class="nav_mobile-close" [ngClass]="{'nav_mobile-close--active': active}"></div>
+        <li class="nav_item"><a class="nav_item-text" href="#">Dashbord</a></li><span>|</span>
+        <li class="nav_item"><a class="nav_item-text" href="#">Resumo</a></li><span>|</span>
+        <li class="nav_item"><a class="nav_item-text" href="#">Configurações</a></li>
+      </ul>
+    </nav> 
+  </div>
+</header>

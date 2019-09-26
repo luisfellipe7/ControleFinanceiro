@@ -1,0 +1,168 @@
+$margin-col = 2px
+
+col(col-num)
+  width ((100% * col-num) /12) - ($margin-col * 2)
+  margin $margin-col
+  box-sizing border-box
+
+.transacao
+  col(4.5)
+  display inline-block
+  border 1px solid #636363
+  border-radius 5px
+  padding 15px
+
+.account
+  col(8)
+  display inline-block
+  position absolute
+  padding 20px
+
+.transacao_form
+.account_data  
+  margin-top 20px
+
+.account_data  
+  width 100%   
+
+.transacao_title
+.account_title  
+  text-align center
+
+.transacao_label-type
+.transacao_select-type
+.transacao_label-name
+.transacao_input-name
+.transacao_label-value
+.transacao_input-value
+.transacao_button-add
+  display block
+  width 100%
+
+.transacao_select-type
+.transacao_input-name
+.transacao_input-value
+  padding 10px
+  background #ffffff
+  border-radius 5px
+  margin 10px 0 20px 0 
+  border 1px solid #636363
+  color #636363
+
+.transacao_button-add
+  color #fff
+  background #636363
+  padding 10px
+  border none
+  border-radius 5px
+  font-size .9em
+  cursor pointer
+  margin-bottom 10px
+  &:hover
+    background #000
+
+table
+  border-collapse collapse
+
+.account_list
+  border-top 1px solid black
+  border-bottom 1px solid black
+  height 40px
+
+.account_list--normal 
+  border none 
+  height 30px  
+
+.account_head
+  height 30px
+
+.account_head-merc  
+  text-align left 
+
+.account_item
+  font-weight bold
+  height 40px
+
+.account_item--text-center
+  text-align center
+
+.account_desc
+  font-size .7em
+  text-align center
+
+.account_list-preco
+  text-align center
+
+.account_list-name
+  width 80%
+
+.transacao_select--invalid
+.transacao_input-name--invalid
+.transacao_input-preco--invalid
+  border-color #dc3545
+
+.transacao_input-feedback
+  width 100%
+  margin -10px 0 0 0
+  font-size 80%
+  color #dc3545
+
+@media screen and (max-width 768px)
+  .transacao
+    col(12)
+    display block
+
+  .account
+    col(12)
+    display inline
+    position absolute
+    padding 0
+    margin-top 25px
+
+  .transacao_input-select-action
+    col(4)
+    display inline-block
+
+  .transacao_input-text-name
+    col(5)
+    display inline-block
+    margin-right 35px
+    margin-left 35px
+
+  .transacao_input-value-preco 
+    col(3)
+    display inline-block
+
+  .transacao_button-add
+    col(6)
+    margin-left 365px
+
+@media screen and (max-width 411px)
+  .account
+    padding 10px
+    margin-top 25px
+
+  .account_title 
+    border-top 1px solid #000
+    padding-top 40px  
+
+  .transacao
+    col(12.5)
+    border none
+    padding 0
+    
+  .transacao_input-select-action
+    col(12)
+    display inline-block
+    
+  .transacao_input-text-name
+    col(12)
+    display inline-block
+
+  .transacao_input-value-preco 
+    col(12)
+    display inline-block
+
+  .transacao_button-add
+    col(12)
+    margin 0

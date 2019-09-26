@@ -1,0 +1,175 @@
+$margin-col = 2px
+
+col(col-num)
+  width ((100% * col-num) /12) - ($margin-col * 2)
+  margin $margin-col
+  box-sizing border-box
+
+.header
+  height 80px
+  background #E0E0E0
+
+.header_link
+  padding 16px 0
+  margin-right 5px
+  col(1)
+  display inline-block
+  float left
+
+.header_text
+  padding 28px 0 28px 10px
+  color #333333
+  font-size 20px
+  col(3)
+  display inline-block
+  float left
+
+.nav
+  col(9)
+  display inline-block
+
+.nav_list
+  width 350px
+  text-align center
+  height 40px
+  padding 9px
+  background #fff
+  float right
+
+.nav_list span
+  color #636363  
+
+.nav_item
+  display inline
+  padding-right 15px
+  padding-left 15px
+
+.nav_item-text
+  text-decoration none
+  color #333333
+  font-size 16px
+
+.menu-icon
+  width 30px
+  height 4px
+  background #000
+  display none
+  position absolute
+  right 30px
+  top 40px
+  cursor pointer
+  &:after
+    content ''
+    width 30px
+    height 4px
+    background #000
+    position absolute
+    top 8px
+  &:before
+    content ''
+    width 30px
+    height 4px
+    background #000
+    position absolute
+    top -8px
+
+.nav_mobile-close
+  width 30px
+  height 4px
+  background #fff
+  display none
+  position absolute
+  left 5px
+  right 30px
+  top 30px
+  cursor pointer
+  transform rotate(53deg)
+  border-radius 2px
+  cursor pointer
+  &:before
+    content ''
+    width 30px
+    height 4px
+    background #fff
+    position absolute
+    top 0
+    right 0
+    transform rotate(-105deg)
+    border-radius 2px
+
+@media screen and (max-width 768px)
+  .header_text
+    col(11)
+    text-align center
+
+  .nav
+    display none
+
+  .nav--active
+    background #000
+    width 250px
+    height 100vh
+    z-index 1
+    display block
+    position absolute
+    right 0
+    animation show-menu .5s forwards
+
+  .nav_mobile-close--active
+    display block
+    z-index 2
+
+  .nav_item
+    display block
+    padding 10px 0
+    font-weight bold
+
+  .nav_list
+    width 100%
+    text-align right
+    background none  
+    padding 0 10px 0 0
+    margin-top 50px
+
+  .nav_list span
+    display none
+
+  .nav_item-text
+    color #fff      
+
+  .menu-icon
+    display block  
+
+   @keyframes show-menu {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0, -30px);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0px, 0, 0);
+    }
+  } 
+
+@media screen and (max-width 411px)
+  .header_text
+    col(11)
+    text-align center  
+
+  .nav
+    display none
+
+  .menu-icon
+    display block
+
+  .nav--active
+    background #000
+    width 350px
+    height 100vh
+    z-index 1
+    display block
+    position absolute
+    right 0
+
+  .nav_item-text  
+    font-size 1.4em
